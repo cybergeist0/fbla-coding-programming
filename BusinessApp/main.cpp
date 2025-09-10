@@ -11,11 +11,11 @@ int main() {
     while (true) {
         string operation;
         cin >> operation;
-
+        // conditionals to handle different operations
         if (operation == "add") {
             string businessName;
             cin >> businessName;
-            businesses.push_back(make_shared<Business>(businessName));
+            businesses.push_back(make_shared<Business>(businessName)); 
         } else if (operation == "remove") {
             string type, businessName;
             cin >> type >> businessName;
@@ -40,7 +40,7 @@ int main() {
             cin >> businessName;
             string review;
             cin.ignore();
-            getline(cin, review);
+            getline(cin, review); // take full line, ignore the newline char
             auto b = findBusiness(businesses, businessName);
             if (b) b->addReview(review);
         } else if (operation == "list") {
@@ -63,7 +63,7 @@ int main() {
             string businessName;
             cin >> businessName;
             auto b = findBusiness(businesses, businessName);
-            if (b) {
+            if (b) { //  b isnt nullptr
                 b->getReviews();
             } else {
                 cout << "Business not found." << endl;
